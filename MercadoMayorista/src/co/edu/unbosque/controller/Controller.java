@@ -1,7 +1,17 @@
 package co.edu.unbosque.controller;
 
+import co.edu.unbosque.view.ViewFacade;
+
 public class Controller {
-public void run(){
-	
-}
+
+	ViewFacade vf;
+
+	public Controller() {
+		vf = new ViewFacade();
+		run();
+	}
+
+	public void run() {
+		vf.getVi().setVisible(true);
+	}
 }
