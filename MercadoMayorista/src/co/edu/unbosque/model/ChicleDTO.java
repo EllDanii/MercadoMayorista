@@ -1,30 +1,30 @@
 package co.edu.unbosque.model;
 
-public class Chicle extends Producto {
+public class ChicleDTO extends Producto {
 
 	private int cantidad;
 	private boolean tieneAzucar;
 	private String sabor;
 
-	public Chicle() {
+	public ChicleDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Chicle(int cantidad, boolean tieneAzucar, String sabor) {
+	public ChicleDTO(int cantidad, boolean tieneAzucar, String sabor) {
 		super();
 		this.cantidad = cantidad;
 		this.tieneAzucar = tieneAzucar;
 		this.sabor = sabor;
 	}
 
-	public Chicle(String marca, double precio, int cantidad, boolean tieneAzucar, String sabor) {
+	public ChicleDTO(String marca, double precio, int cantidad, boolean tieneAzucar, String sabor) {
 		super(marca, precio);
 		this.cantidad = cantidad;
 		this.tieneAzucar = tieneAzucar;
 		this.sabor = sabor;
 	}
 
-	public Chicle(String marca, double precio) {
+	public ChicleDTO(String marca, double precio) {
 		super(marca, precio);
 		// TODO Auto-generated constructor stub
 	}

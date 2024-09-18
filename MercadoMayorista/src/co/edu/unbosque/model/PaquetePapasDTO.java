@@ -1,30 +1,30 @@
 package co.edu.unbosque.model;
 
-public class PaquetePapas extends Producto {
+public class PaquetePapasDTO extends Producto {
 
 	private String sabor;
 	private double peso;
 	private double calorias;
 
-	public PaquetePapas() {
+	public PaquetePapasDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PaquetePapas(String sabor, double peso, double calorias) {
+	public PaquetePapasDTO(String sabor, double peso, double calorias) {
 		super();
 		this.sabor = sabor;
 		this.peso = peso;
 		this.calorias = calorias;
 	}
 
-	public PaquetePapas(String marca, double precio, String sabor, double peso, double calorias) {
+	public PaquetePapasDTO(String marca, double precio, String sabor, double peso, double calorias) {
 		super(marca, precio);
 		this.sabor = sabor;
 		this.peso = peso;
 		this.calorias = calorias;
 	}
 
-	public PaquetePapas(String marca, double precio) {
+	public PaquetePapasDTO(String marca, double precio) {
 		super(marca, precio);
 		// TODO Auto-generated constructor stub
 	}

@@ -1,24 +1,24 @@
 package co.edu.unbosque.model;
 
-public class Agua extends Producto {
+public class AguaDTO extends Producto {
 
 	private double mililitros;
 
-	public Agua() {
+	public AguaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Agua(double mililitros) {
+	public AguaDTO(double mililitros) {
 		super();
 		this.mililitros = mililitros;
 	}
 
-	public Agua(String marca, double precio, double mililitros) {
+	public AguaDTO(String marca, double precio, double mililitros) {
 		super(marca, precio);
 		this.mililitros = mililitros;
 	}
 
-	public Agua(String marca, double precio) {
+	public AguaDTO(String marca, double precio) {
 		super(marca, precio);
 		// TODO Auto-generated constructor stub
 	}

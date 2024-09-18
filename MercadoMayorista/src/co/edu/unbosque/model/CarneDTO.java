@@ -1,17 +1,17 @@
 package co.edu.unbosque.model;
 
-public class Carne extends Producto {
+public class CarneDTO extends Producto {
 
 	private double peso;
 	private String tipo;
 	private String color;
 	private String corte;
 
-	public Carne() {
+	public CarneDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Carne(double peso, String tipo, String color, String corte) {
+	public CarneDTO(double peso, String tipo, String color, String corte) {
 		super();
 		this.peso = peso;
 		this.tipo = tipo;
@@ -19,7 +19,7 @@ public class Carne extends Producto {
 		this.corte = corte;
 	}
 
-	public Carne(String marca, double precio, double peso, String tipo, String color, String corte) {
+	public CarneDTO(String marca, double precio, double peso, String tipo, String color, String corte) {
 		super(marca, precio);
 		this.peso = peso;
 		this.tipo = tipo;
@@ -27,7 +27,7 @@ public class Carne extends Producto {
 		this.corte = corte;
 	}
 
-	public Carne(String marca, double precio) {
+	public CarneDTO(String marca, double precio) {
 		super(marca, precio);
 		// TODO Auto-generated constructor stub
 	}
