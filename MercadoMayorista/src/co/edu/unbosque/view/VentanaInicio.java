@@ -27,11 +27,11 @@ public class VentanaInicio extends JFrame {
 		setLocationRelativeTo(null);
 		
 		panel1 = new JPanel();
-		panel1.setBounds(0, 0, 900, 600);
+		panel1.setBounds(0, 0, 900, 700);
 		panel1.setLayout(null);
 		
 		boton1 = new JButton();
-		boton1.setBounds(290, 430, 200, 60);
+		boton1.setBounds(290, 330, 200, 60);
 		boton1.setForeground(Color.black);
 		boton1.setText("Papas");
 		boton1.setBackground(new Color(166, 174, 186));
@@ -39,7 +39,7 @@ public class VentanaInicio extends JFrame {
 		boton1.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		
 		boton2 = new JButton();
-		boton2.setBounds(75, 430, 200, 60);
+		boton2.setBounds(75, 330, 200, 60);
 		boton2.setForeground(Color.black);
 		boton2.setText("Carnes");
 		boton2.setBackground(new Color(166, 174, 186));
@@ -47,7 +47,7 @@ public class VentanaInicio extends JFrame {
 		boton2.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		
 		boton3 = new JButton();
-		boton3.setBounds(510, 430, 200, 60);
+		boton3.setBounds(510, 330, 200, 60);
 		boton3.setForeground(Color.black);
 		boton3.setText("Chicles");
 		boton3.setBackground(new Color(166, 174, 186));
@@ -55,12 +55,20 @@ public class VentanaInicio extends JFrame {
 		boton3.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		
 		boton4 = new JButton();
-		boton4.setBounds(725, 430, 200, 60);
+		boton4.setBounds(725, 330, 200, 60);
 		boton4.setForeground(Color.black);
 		boton4.setText("Agua");
 		boton4.setBackground(new Color(166, 174, 186));
 		boton4.setFont(new Font("Cooper Black", Font.PLAIN,18));
 		boton4.setCursor(new Cursor (Cursor.HAND_CURSOR));
+		
+		boton5 = new JButton();
+		boton5.setBounds(0, 500, 200, 60);
+		boton5.setForeground(Color.black);
+		boton5.setText("Salir");
+		boton5.setBackground(new Color(166, 174, 186));
+		boton5.setFont(new Font("Cooper Black", Font.PLAIN,18));
+		boton5.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		
 		titulo1= new JLabel();
 		titulo1.setText("BIENVENIDO AL MERCADO MAYORISTA");
@@ -73,6 +81,7 @@ public class VentanaInicio extends JFrame {
 		panel1.add(boton2);
 		panel1.add(boton3);
 		panel1.add(boton4);
+		panel1.add(boton5);
 		panel1.add(titulo1);
 		
 		add(panel1);
