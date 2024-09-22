@@ -1,5 +1,5 @@
 package co.edu.unbosque.view;
-
+import co.edu.unbosque.view.VentanaCrearProducto;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -86,5 +86,18 @@ public class VentanaInicio extends JFrame {
 		
 		add(panel1);
 		
+			boton1.addActionListener(e -> abrirCrearProducto());
+	        boton2.addActionListener(e -> abrirCrearProducto());
+	        boton3.addActionListener(e -> abrirCrearProducto());
+	        boton4.addActionListener(e -> abrirCrearProducto());
+	        boton5.addActionListener(e -> System.exit(0));
+
+	        setVisible(true);
+	    }
+
+	    private void abrirCrearProducto() {
+	        VentanaCrearProducto ventanaCrearProducto = new VentanaCrearProducto();
+	        ventanaCrearProducto.setVisible(true);
+	    }
 	}
-}
+
