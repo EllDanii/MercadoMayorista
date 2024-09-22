@@ -9,15 +9,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VentanaInicio extends JFrame {
-	
+public class VentanaCRUD extends JFrame {
 	private JLabel titulo1;
 	private JButton boton1, boton2, boton3, boton4, boton5;
 	private JPanel panel1;
 	
-	public VentanaInicio() {
+	public VentanaCRUD() {
 		setBounds(300, 100, 1000, 600);
-		setTitle("Mercado mayorista");
+		setTitle("CRUD");
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
@@ -30,7 +29,7 @@ public class VentanaInicio extends JFrame {
 		boton1 = new JButton();
 		boton1.setBounds(290, 330, 200, 60);
 		boton1.setForeground(Color.black);
-		boton1.setText("Papas");
+		boton1.setText("Eliminar");
 		boton1.setBackground(new Color(166, 174, 186));
 		boton1.setFont(new Font("Cooper Black", Font.PLAIN,20));
 		boton1.setCursor(new Cursor (Cursor.HAND_CURSOR));
@@ -38,7 +37,7 @@ public class VentanaInicio extends JFrame {
 		boton2 = new JButton();
 		boton2.setBounds(75, 330, 200, 60);
 		boton2.setForeground(Color.black);
-		boton2.setText("Carnes");
+		boton2.setText("Crear");
 		boton2.setBackground(new Color(166, 174, 186));
 		boton2.setFont(new Font("Cooper Black", Font.PLAIN,20));
 		boton2.setCursor(new Cursor (Cursor.HAND_CURSOR));
@@ -46,7 +45,7 @@ public class VentanaInicio extends JFrame {
 		boton3 = new JButton();
 		boton3.setBounds(510, 330, 200, 60);
 		boton3.setForeground(Color.black);
-		boton3.setText("Chicles");
+		boton3.setText("Actualizar");
 		boton3.setBackground(new Color(166, 174, 186));
 		boton3.setFont(new Font("Cooper Black", Font.PLAIN,18));
 		boton3.setCursor(new Cursor (Cursor.HAND_CURSOR));
@@ -54,7 +53,7 @@ public class VentanaInicio extends JFrame {
 		boton4 = new JButton();
 		boton4.setBounds(725, 330, 200, 60);
 		boton4.setForeground(Color.black);
-		boton4.setText("Agua");
+		boton4.setText("Mostrar");
 		boton4.setBackground(new Color(166, 174, 186));
 		boton4.setFont(new Font("Cooper Black", Font.PLAIN,18));
 		boton4.setCursor(new Cursor (Cursor.HAND_CURSOR));
@@ -62,14 +61,14 @@ public class VentanaInicio extends JFrame {
 		boton5 = new JButton();
 		boton5.setBounds(0, 500, 200, 60);
 		boton5.setForeground(Color.black);
-		boton5.setText("Salir");
+		boton5.setText("Volver");
 		boton5.setBackground(new Color(166, 174, 186));
 		boton5.setFont(new Font("Cooper Black", Font.PLAIN,18));
 		boton5.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		
 		titulo1= new JLabel();
-		titulo1.setText("BIENVENIDO AL MERCADO MAYORISTA");
-		titulo1.setBounds(200,25,800,100);
+		titulo1.setText("¿Que quiere hacer con su producto?");
+		titulo1.setBounds(260,100,800,100);
 		titulo1.setForeground(Color.black);
 		titulo1.setBackground(Color.red);
 		titulo1.setFont(new Font("Imprint MT Shadow", Font.BOLD,30));
@@ -82,6 +81,5 @@ public class VentanaInicio extends JFrame {
 		panel1.add(titulo1);
 		
 		add(panel1);
-		
 	}
 }
