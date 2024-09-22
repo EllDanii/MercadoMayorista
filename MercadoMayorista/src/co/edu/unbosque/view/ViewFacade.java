@@ -8,14 +8,16 @@ public class ViewFacade {
 
 	public ViewFacade() {
 		vi = new VentanaInicio();
+
 		vc = new VentanaCRUD();
 		vcr = new VentanaCrear();
+
 	}
 
 	public VentanaInicio getVi() {
 		return vi;
 	}
-	
+
 	public VentanaCRUD getVc() {
 		return vc;
 	}
