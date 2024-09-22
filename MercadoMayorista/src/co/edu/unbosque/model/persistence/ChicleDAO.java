@@ -2,55 +2,91 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 
-import co.edu.unbosque.model.Agua;
 import co.edu.unbosque.model.Chicle;
+import co.edu.unbosque.model.ChicleDTO;
 
-public class ChicleDAO implements CRUDOperation<ChicleDAO, Chicle>{
-	
+public class ChicleDAO implements CRUDOperation<ChicleDTO, Chicle> {
+
 	private ArrayList<Chicle> chicleList;
 	private final String FILE_NAME = "Chicles.csv";
 	private final String SERIAL_NAME = "Chicles.dat";
-	
+
 	public ChicleDAO() {
-		// TODO Auto-generated constructor stub
+		readSerializable();
+		FileHandler.checkFolder();
 	}
 
 	@Override
 	public String showAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String rta = "";
+		if (chicleList.isEmpty()) {
+			return "No hay chicles en la lista";
+		} else {
+			for (Chicle chicle : chicleList) {
+				rta += chicle;
+			}
+			return rta;
+		}
 	}
 
 	@Override
-	public ArrayList<ChicleDAO> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<ChicleDTO> getAll() {
+		return DataMapper.listaChicleoListaChicleDTO(chicleList);
 	}
 
 	@Override
-	public boolean add(ChicleDAO newData) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean add(ChicleDTO newData) {
+		if (find(DataMapper.chicleDTOtoChicle(newData)) == null) {
+			chicleList.add(DataMapper.chicleDTOtoChicle(newData));
+			writeSerializable();
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean delete(ChicleDAO toDelete) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(ChicleDTO toDelete) {
+		Chicle found = find(DataMapper.chicleDTOtoChicle(toDelete));
+		if (found != null) {
+			writeSerializable();
+			return chicleList.remove(found);
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean update(ChicleDAO previous, ChicleDAO newData) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(ChicleDTO previous, ChicleDTO newData) {
+		Chicle found = find(DataMapper.chicleDTOtoChicle(previous));
+		if (found != null) {
+			chicleList.remove(found);
+			chicleList.add(DataMapper.chicleDTOtoChicle(newData));
+			writeSerializable();
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public Chicle find(Chicle toFind) {
-		// TODO Auto-generated method stub
+		Chicle found = null;
+		if (!chicleList.isEmpty()) {
+			for (Chicle c : chicleList) {
+				if (c.getMarca().equals(toFind.getMarca())) {
+					found = c;
+					return found;
+				} else {
+					continue;
+				}
+			}
+		} else {
+			return null;
+		}
 		return null;
 	}
-	
+
 	public void writeSerializable() {
 		FileHandler.writeSerializable(SERIAL_NAME, chicleList);
 	}
@@ -64,5 +100,5 @@ public class ChicleDAO implements CRUDOperation<ChicleDAO, Chicle>{
 			chicleList = (ArrayList<Chicle>) content;
 		}
 	}
-	
+
 }
