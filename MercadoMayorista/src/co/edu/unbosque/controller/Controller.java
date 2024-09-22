@@ -12,8 +12,8 @@ public class Controller {
 	}
 
 	public void run() {
-		vf.getVi().setVisible(true);
+		// vf.getVi().setVisible(true);
 		vf.getVc().setVisible(true);
-		vf.getVcr().setVisible(true);
+		// vf.getVcr().setVisible(true);
 	}
 }

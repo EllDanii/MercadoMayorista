@@ -136,17 +136,15 @@ public class VentanaCrear extends JFrame {
 			panSabor.setText("<-- Sabor");
 			panSabor.setForeground(Color.black);
 			panSabor.setFont(new Font("Arial", Font.BOLD, 13));
-
-			entIndex = new JTextField();
-			entIndex.setBounds(60, 430, 700, 40);
-			entIndex.setVisible(false);
-
-			panIndex = new JLabel();
-			panIndex.setBounds(800, 430, 700, 40);
-			panIndex.setText("<-- Indice");
-			panIndex.setForeground(Color.black);
-			panIndex.setFont(new Font("Arial", Font.BOLD, 13));
-			panIndex.setVisible(false);
+			
+			entCalorias = new JTextField();
+			entCalorias.setBounds(60, 390, 700, 40);
+			
+			panCalorias = new JLabel();
+			panCalorias.setBounds(800, 390, 700, 40);
+			panCalorias.setText("<-- Sabor");
+			panCalorias.setForeground(Color.black);
+			panCalorias.setFont(new Font("Arial", Font.BOLD, 13));
 
 			add(botonCrear);
 			add(botonVolver);
@@ -185,12 +183,5 @@ public class VentanaCrear extends JFrame {
 
 		}
 
-		public void mostrarIndex() {
-			entIndex.setVisible(true);
-			panIndex.setVisible(true);
-		}
-		public void ocultarIndex() {
-			entIndex.setVisible(false);
-			panIndex.setVisible(false);
-		}
+		
 }
