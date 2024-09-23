@@ -95,14 +95,16 @@ public class FileHandler {
 
 		try {
 			archivo = new File(FOLDER_NAME + "/" + url);
-			if (archivo.exists()) {
+			System.out.println(archivo.getPath());
+			if (!archivo.exists()) {
 				archivo.createNewFile();
 			}
 			fis = new FileInputStream(archivo);
 			ois = new ObjectInputStream(fis);
 			Object content = ois.readObject();
-			fis.close();
 			ois.close();
+			fis.close();
+			
 			return content;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -111,7 +113,7 @@ public class FileHandler {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
-			System.out.println("Error al leer el archivo serializado");
+			System.out.println("Error al leer el archivo serializadooooo");
 		}
 		return null;
 

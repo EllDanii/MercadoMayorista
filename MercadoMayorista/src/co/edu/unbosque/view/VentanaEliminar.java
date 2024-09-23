@@ -1,3 +1,4 @@
+package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -62,7 +63,7 @@ public class VentanaEliminar extends JFrame {
 
 		panCorte = new JLabel();
 		panCorte.setBounds(800, 90, 700, 40);
-		panCorte.setText("<-- Marca");
+		panCorte.setText("<-- Corte");
 		panCorte.setForeground(Color.black);
 		panCorte.setFont(new Font("Arial", Font.BOLD, 13));
 
@@ -70,7 +71,7 @@ public class VentanaEliminar extends JFrame {
 		panelCarne.add(panCorte);
 
 		panelProd.add(entMarca);
-		panelProd.add(panCorte);
+		panelProd.add(panMarca);
 		
 		
 		add(titulo);
