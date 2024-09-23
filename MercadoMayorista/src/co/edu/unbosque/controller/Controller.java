@@ -68,6 +68,11 @@ public class Controller implements ActionListener {
 		vf.getVa().getBotonActualizar().setActionCommand("botonEliminarProducto");
 		vf.getVa().getBotonVolver().addActionListener(this);
 		vf.getVa().getBotonVolver().setActionCommand("botonVolver");
+		
+		vf.getVm().getBotonVolver().addActionListener(this);
+		vf.getVm().getBotonVolver().setActionCommand("botonVolver");
+		
+		
 
 	}
 
@@ -116,9 +121,10 @@ public class Controller implements ActionListener {
 			vf.getVe().setVisible(true);
 			panelesEliminar();
 			break;
-		case "botonMostrar":
+		case "botonMostar":
 			vf.getVc().setVisible(false);
-			vf.getVcr().setVisible(true);
+			vf.getVm().setVisible(true);
+			mostrar();
 			break;
 		case "botonVolver":
 			vf.getVi().setVisible(true);
@@ -126,12 +132,13 @@ public class Controller implements ActionListener {
 			vf.getVcr().setVisible(false);
 			vf.getVe().setVisible(false);
 			vf.getVa().setVisible(false);
+			vf.getVm().setVisible(false);
 			break;
 		case "botonCrearProducto":
 			crear();
 			break;
 		case "botonEliminarProducto":
-
+			eliminar();
 			break;
 
 		default:
@@ -278,6 +285,41 @@ public class Controller implements ActionListener {
 
 	}
 
+	public void eliminar() {
+		String marca = vf.getVe().getEntMarca().getText();
+		if (tipo == "carnes") {
+			String corte = vf.getVe().getEntCorte().getText();
+			if (mf.getCarne().delete(new CarneDTO(null, 0, 0, null, null, corte)) == true) {
+				JOptionPane.showMessageDialog(vf.getVc(), "Carne eliminada con exito");
+				limpiarEliminar();
+			} else {
+				JOptionPane.showMessageDialog(vf.getVc(), "Corte no encontrado");
+			}
+		} else if (tipo == "papas") {
+			if (mf.getPapas().delete(new PaquetePapasDTO(marca, 0, null, 0, 0))) {
+				JOptionPane.showMessageDialog(vf.getVc(), "Paquete de papas eliminado con exito");
+				limpiarEliminar();
+			} else {
+				JOptionPane.showMessageDialog(vf.getVc(), "Marca de papas no encontrada");
+			}
+		} else if (tipo == "chicles") {
+			if (mf.getChicle().delete(new ChicleDTO(marca, 0, 0, false, null))) {
+				JOptionPane.showMessageDialog(vf.getVc(), "Chicle eliminado con exito");
+				limpiarEliminar();
+			} else {
+				JOptionPane.showMessageDialog(vf.getVc(), "Marca de chicle no encontrada");
+			}
+
+		} else if (tipo == "aguas") {
+			if (mf.getAgua().delete(new AguaDTO(marca, 0, 0))) {
+				JOptionPane.showMessageDialog(vf.getVc(), "Agua eliminada con exito");
+				limpiarEliminar();
+			} else {
+				JOptionPane.showMessageDialog(vf.getVc(), "Marca de agua no encontrada");
+			}
+		}
+	}
+
 	public void limpiarCrear() {
 		vf.getVcr().getEntPesoCarne().setText("");
 		vf.getVcr().getEntPesoPapas().setText("");
@@ -293,6 +335,13 @@ public class Controller implements ActionListener {
 		vf.getVcr().getEntMarca().setText("");
 		vf.getVcr().getEntPrecio().setText("");
 		vf.getVcr().setVisible(false);
+		vf.getVc().setVisible(true);
+	}
+
+	public void limpiarEliminar() {
+		vf.getVe().getEntCorte().setText("");
+		vf.getVe().getEntMarca().setText("");
+		vf.getVe().setVisible(false);
 		vf.getVc().setVisible(true);
 	}
 
@@ -330,6 +379,18 @@ public class Controller implements ActionListener {
 			return false;
 		}
 		return false;
+	}
+
+	public void mostrar() {
+		if (tipo == "papas") {
+			vf.getVm().getMostrar().setText(mf.getPapas().showAll());
+		} else if (tipo == "carnes") {
+			vf.getVm().getMostrar().setText(mf.getCarne().showAll());
+		} else if (tipo == "chicles") {
+			vf.getVm().getMostrar().setText(mf.getChicle().showAll());
+		} else if (tipo == "aguas") {
+			vf.getVm().getMostrar().setText(mf.getAgua().showAll());
+		}
 	}
 
 }

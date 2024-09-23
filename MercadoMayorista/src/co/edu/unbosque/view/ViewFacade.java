@@ -7,6 +7,7 @@ public class ViewFacade {
 	VentanaCrear vcr;
 	VentanaEliminar ve;
 	VentanaActualizar va;
+	VentanaMostrar vm;
 
 	public ViewFacade() {
 		vi = new VentanaInicio();
@@ -14,6 +15,7 @@ public class ViewFacade {
 		vcr = new VentanaCrear();
 		ve = new VentanaEliminar();
 		va = new VentanaActualizar();
+		vm = new VentanaMostrar();
 	}
 
 	public VentanaInicio getVi() {
@@ -34,6 +36,10 @@ public class ViewFacade {
 
 	public VentanaActualizar getVa() {
 		return va;
+	}
+
+	public VentanaMostrar getVm() {
+		return vm;
 	}
 	
 	

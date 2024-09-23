@@ -23,7 +23,7 @@ public class CarneDAO implements CRUDOperation<CarneDTO, Carne> {
 			return "No hay carnes en la lista";
 		} else {
 			for (Carne carne : carneList) {
-				rta += carne;
+				rta += carne + "\n";
 			}
 			return rta;
 		}

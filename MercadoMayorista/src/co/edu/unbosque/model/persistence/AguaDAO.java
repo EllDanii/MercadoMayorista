@@ -23,7 +23,7 @@ public class AguaDAO implements CRUDOperation<AguaDTO, Agua> {
 			return "No hay aguas en la lista";
 		} else {
 			for (Agua agua : aguaList) {
-				rta += agua;
+				rta += agua + "\n";
 			}
 			return rta;
 		}

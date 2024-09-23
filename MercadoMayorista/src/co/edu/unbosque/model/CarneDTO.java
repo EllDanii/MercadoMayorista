@@ -66,7 +66,7 @@ public class CarneDTO extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + "peso:" + peso + ", tipo:" + tipo + ", color:" + color + ", corte:" + corte;
+		return super.toString() + "peso:" + peso + ", tipo:" + tipo + ", color:" + color + ", corte:" + corte + "\n";
 	}
 
 }

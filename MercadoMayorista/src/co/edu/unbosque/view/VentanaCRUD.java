@@ -23,7 +23,7 @@ public class VentanaCRUD extends JFrame {
 		setLocationRelativeTo(null);
 		
 		panel1 = new JPanel();
-		panel1.setBounds(0, 0, 900, 700);
+		panel1.setBounds(0, 0, 1000, 700);
 		panel1.setLayout(null);
 		
 		boton1 = new JButton();
