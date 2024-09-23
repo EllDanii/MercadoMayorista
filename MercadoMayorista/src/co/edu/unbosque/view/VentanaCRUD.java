@@ -82,4 +82,62 @@ public class VentanaCRUD extends JFrame {
 		
 		add(panel1);
 	}
+
+	public JLabel getTitulo1() {
+		return titulo1;
+	}
+
+	public void setTitulo1(JLabel titulo1) {
+		this.titulo1 = titulo1;
+	}
+
+	public JButton getBoton1() {
+		return boton1;
+	}
+
+	public void setBoton1(JButton boton1) {
+		this.boton1 = boton1;
+	}
+
+	public JButton getBoton2() {
+		return boton2;
+	}
+
+	public void setBoton2(JButton boton2) {
+		this.boton2 = boton2;
+	}
+
+	public JButton getBoton3() {
+		return boton3;
+	}
+
+	public void setBoton3(JButton boton3) {
+		this.boton3 = boton3;
+	}
+
+	public JButton getBoton4() {
+		return boton4;
+	}
+
+	public void setBoton4(JButton boton4) {
+		this.boton4 = boton4;
+	}
+
+	public JButton getBoton5() {
+		return boton5;
+	}
+
+	public void setBoton5(JButton boton5) {
+		this.boton5 = boton5;
+	}
+
+	public JPanel getPanel1() {
+		return panel1;
+	}
+
+	public void setPanel1(JPanel panel1) {
+		this.panel1 = panel1;
+	}
+	
+	
 }
