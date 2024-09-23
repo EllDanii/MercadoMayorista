@@ -95,7 +95,6 @@ public class FileHandler {
 
 		try {
 			archivo = new File(FOLDER_NAME + "/" + url);
-			System.out.println(archivo.getPath());
 			if (!archivo.exists()) {
 				archivo.createNewFile();
 			}

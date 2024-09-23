@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
-public class Agua extends Producto {
+import java.io.Serializable;
 
+public class Agua extends Producto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7151488761751104386L;
 	private double mililitros;
 
 	public Agua() {

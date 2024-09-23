@@ -30,8 +30,9 @@ public class VentanaCrear extends JFrame {
 
 		titulo = new JLabel();
 		titulo.setBounds(150, 0, 900, 120);
+		titulo.setText("Complete los campos requeridos");
 		titulo.setForeground(Color.black);
-		titulo.setFont(new Font("Arial", Font.BOLD, 37));
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 
 		botonCrear = new JButton();
 		botonCrear.setBounds(930, 450, 130, 50);
@@ -182,6 +183,7 @@ public class VentanaCrear extends JFrame {
 		panCalorias.setForeground(Color.black);
 		panCalorias.setFont(new Font("Arial", Font.BOLD, 13));
 
+		add(titulo);
 		add(botonCrear);
 		add(botonVolver);
 		add(panelAgua);

@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
-public class Carne extends Producto {
+import java.io.Serializable;
 
+public class Carne extends Producto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4363522185477053790L;
 	private double peso;
 	private String tipo;
 	private String color;

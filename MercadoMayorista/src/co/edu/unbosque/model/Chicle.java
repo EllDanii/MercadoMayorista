@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
-public class Chicle extends Producto {
+import java.io.Serializable;
 
+public class Chicle extends Producto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2952626443930430720L;
 	private int cantidad;
 	private boolean tieneAzucar;
 	private String sabor;

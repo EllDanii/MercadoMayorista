@@ -9,12 +9,11 @@ public class AguaDAO implements CRUDOperation<AguaDTO, Agua> {
 
 	private ArrayList<Agua> aguaList;
 	private final String FILE_NAME = "Aguas.csv";
-	private final String SERIAL_NAME = "aguas.dat";
+	private final String SERIAL_NAME = "agua.dat";
 
 	public AguaDAO() {
-		FileHandler.checkFolder();
 		readSerializable();
-		
+		FileHandler.checkFolder();
 	}
 
 	@Override

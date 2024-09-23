@@ -30,8 +30,9 @@ public class VentanaActualizar extends JFrame {
 
 		titulo = new JLabel();
 		titulo.setBounds(150, 0, 900, 120);
+		titulo.setText("Complete los campos requeridos");
 		titulo.setForeground(Color.black);
-		titulo.setFont(new Font("Arial", Font.BOLD, 37));
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 
 		botonActualizar = new JButton();
 		botonActualizar.setBounds(930, 450, 130, 50);
@@ -200,6 +201,7 @@ public class VentanaActualizar extends JFrame {
 		panCorteVie.setForeground(Color.black);
 		panCorteVie.setFont(new Font("Arial", Font.BOLD, 13));
 
+		add(titulo);
 		add(panMarcaVie);
 		add(entMarcaVie);
 		add(panCorteVie);

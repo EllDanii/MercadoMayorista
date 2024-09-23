@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
-public class PaquetePapas extends Producto {
+import java.io.Serializable;
 
+public class PaquetePapas extends Producto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4819605454950497095L;
 	private String sabor;
 	private double peso;
 	private double calorias;

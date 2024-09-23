@@ -3,7 +3,9 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import co.edu.unbosque.model.AguaDTO;
 import co.edu.unbosque.model.CarneDTO;
@@ -126,7 +128,7 @@ public class Controller implements ActionListener {
 			vf.getVa().setVisible(false);
 			break;
 		case "botonCrearProducto":
-
+			crear();
 			break;
 		case "botonEliminarProducto":
 
@@ -144,6 +146,7 @@ public class Controller implements ActionListener {
 			vf.getVcr().getPanelCarne().setVisible(false);
 			vf.getVcr().getPanelChicles().setVisible(false);
 			vf.getVcr().getPanelAgua().setVisible(false);
+			vf.getVcr().getTitulo().setText("Complete los campos requeridos");
 		} else if (tipo == "carnes") {
 			vf.getVcr().getPanelPapas().setVisible(false);
 			vf.getVcr().getPanelCarne().setVisible(true);
@@ -213,60 +216,68 @@ public class Controller implements ActionListener {
 	}
 
 	public void crear() {
-		boolean verif = false;
 
-		String marca = vf.getVcr().getEntMarca().getText();
-		double precio = Double.parseDouble(vf.getVcr().getEntPrecio().getText());
+		if (verificarCamposCrear() == false) {
+			String marca = vf.getVcr().getEntMarca().getText();
+			double precio = Double.parseDouble(vf.getVcr().getEntPrecio().getText());
 
-		if (tipo == "papas") {
-			String sabor = vf.getVcr().getEntSaborPapas().getText();
-			double peso = Double.parseDouble(vf.getVcr().getEntPesoPapas().getText());
-			double calorias = Double.parseDouble(vf.getVcr().getEntCalorias().getText());
+			if (tipo == "papas") {
 
-			verif = mf.getPapas().add(new PaquetePapasDTO(marca, precio, sabor, peso, calorias));
-			JOptionPane.showMessageDialog(vf.getVc(), "Paquete de papas creado exitosamente");
-			limpiarCrear();
-		} else if (tipo == "carnes") {
-			double peso = Double.parseDouble(vf.getVcr().getEntPesoCarne().getText());
-			String tipo = vf.getVcr().getEntTipo().getText();
-			String color = vf.getVcr().getEntColor().getText();
-			String corte = vf.getVcr().getEntCorte().getText();
-
-			verif = mf.getCarne().add(new CarneDTO(marca, precio, peso, tipo, color, corte));
-			JOptionPane.showMessageDialog(vf.getVc(), "Carne creado exitosamente");
-			limpiarCrear();
-		} else if (tipo == "chicles") {
-			int cantidad = Integer.parseInt(vf.getVcr().getEntCantidad().getText());
-			boolean tieneAzucar = false;
-			boolean bienAzucar = false;
-			if (vf.getVcr().getEntAzucar().getText().toUpperCase().equals("SI")) {
-				tieneAzucar = true;
-				bienAzucar = true;
-			} else if (vf.getVcr().getEntAzucar().getText().toUpperCase().equals("NO")) {
-				tieneAzucar = false;
-				bienAzucar = true;
-			} else {
-				JOptionPane.showMessageDialog(vf.getVc(), "Escribir si o no en la opcion de tiene azucar");
-			}
-			String sabor = vf.getVcr().getEntSaborChicle().getText();
-
-			if (bienAzucar == true) {
-				mf.getChicle().add(new ChicleDTO(marca, precio, cantidad, tieneAzucar, sabor));
-				JOptionPane.showMessageDialog(vf.getVc(), "Chicle creado exitosamente");
+				String sabor = vf.getVcr().getEntSaborPapas().getText();
+				double peso = Double.parseDouble(vf.getVcr().getEntPesoPapas().getText());
+				double calorias = Double.parseDouble(vf.getVcr().getEntCalorias().getText());
+				mf.getPapas().add(new PaquetePapasDTO(marca, precio, sabor, peso, calorias));
+				JOptionPane.showMessageDialog(vf.getVc(), "Paquete de papas creado exitosamente");
 				limpiarCrear();
-			}
 
-			
-		} else if (tipo == "aguas") {
-			double mililitros = Double.parseDouble(vf.getVcr().getEntMililitros().getText());
-			
-			mf.getAgua().add(new AguaDTO(marca, precio, mililitros));
-			JOptionPane.showMessageDialog(vf.getVc(), "Agua creada exitosamente");
-			limpiarCrear();
+				limpiarCrear();
+			} else if (tipo == "carnes") {
+				double peso = Double.parseDouble(vf.getVcr().getEntPesoCarne().getText());
+				String tipo = vf.getVcr().getEntTipo().getText();
+				String color = vf.getVcr().getEntColor().getText();
+				String corte = vf.getVcr().getEntCorte().getText();
+
+				mf.getCarne().add(new CarneDTO(marca, precio, peso, tipo, color, corte));
+				JOptionPane.showMessageDialog(vf.getVc(), "Carne creado exitosamente");
+				limpiarCrear();
+
+			} else if (tipo == "chicles") {
+				int cantidad = Integer.parseInt(vf.getVcr().getEntCantidad().getText());
+				boolean tieneAzucar = false;
+				boolean bienAzucar = false;
+				if (vf.getVcr().getEntAzucar().getText().toUpperCase().equals("SI")) {
+					tieneAzucar = true;
+					bienAzucar = true;
+				} else if (vf.getVcr().getEntAzucar().getText().toUpperCase().equals("NO")) {
+					tieneAzucar = false;
+					bienAzucar = true;
+				} else {
+					JOptionPane.showMessageDialog(vf.getVc(), "Escribir si o no en la opcion de tiene azucar");
+				}
+				String sabor = vf.getVcr().getEntSaborChicle().getText();
+
+				if (bienAzucar == true) {
+
+					mf.getChicle().add(new ChicleDTO(marca, precio, cantidad, tieneAzucar, sabor));
+					JOptionPane.showMessageDialog(vf.getVc(), "Chicle creado exitosamente");
+					limpiarCrear();
+
+				}
+
+			} else if (tipo == "aguas") {
+				double mililitros = Double.parseDouble(vf.getVcr().getEntMililitros().getText());
+
+				mf.getAgua().add(new AguaDTO(marca, precio, mililitros));
+				JOptionPane.showMessageDialog(vf.getVc(), "Agua creada exitosamente");
+				limpiarCrear();
+
+			}
+		} else {
+			JOptionPane.showMessageDialog(vf.getVc(), "Verificar todos los campos");
 		}
 
 	}
-	
+
 	public void limpiarCrear() {
 		vf.getVcr().getEntPesoCarne().setText("");
 		vf.getVcr().getEntPesoPapas().setText("");
@@ -283,6 +294,42 @@ public class Controller implements ActionListener {
 		vf.getVcr().getEntPrecio().setText("");
 		vf.getVcr().setVisible(false);
 		vf.getVc().setVisible(true);
+	}
+
+	public boolean verificarCamposCrear() {
+		if (vf.getVcr().getEntMarca().getText().isBlank() == true
+				|| vf.getVcr().getEntPrecio().getText().isBlank() == true) {
+			return true;
+		} else if (tipo == "papas") {
+			if (vf.getVcr().getEntSaborPapas().getText().isBlank() == true
+					|| vf.getVcr().getEntPesoPapas().getText().isBlank() == true
+					|| vf.getVcr().getEntCalorias().getText().isBlank() == true) {
+				return true;
+			}
+		} else if (tipo == "carnes") {
+			if (vf.getVcr().getEntPesoCarne().getText().isBlank() == true
+					|| vf.getVcr().getEntTipo().getText().isBlank() == true
+					|| vf.getVcr().getEntColor().getText().isBlank() == true
+					|| vf.getVcr().getEntCorte().getText().isBlank() == true) {
+				return true;
+			}
+
+		} else if (tipo == "chicles") {
+			if (vf.getVcr().getEntCantidad().getText().isBlank() == true
+					|| vf.getVcr().getEntAzucar().getText().isBlank() == true
+					|| vf.getVcr().getEntSaborChicle().getText().isBlank() == true) {
+				return true;
+			}
+
+		} else if (tipo == "aguas") {
+			if (vf.getVcr().getEntMililitros().getText().isBlank() == true) {
+				return true;
+			}
+
+		} else {
+			return false;
+		}
+		return false;
 	}
 
 }
